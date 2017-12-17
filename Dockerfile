@@ -1,8 +1,11 @@
 FROM debian:jessie
 MAINTAINER tilldettmering@gmail.com
 
-# Install pygments (for syntax highlighting) 
-RUN apt-get -qq update && rm -rf /var/lib/apt/lists/*
+# Install dependencies 
+RUN apt-get -qq update &&\
+    apt-get install --no-install-recommends -y \
+                        imagemagick &&\
+    apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
 # Download and install hugo
 ENV HUGO_VERSION 0.31.1
