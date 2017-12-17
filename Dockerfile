@@ -4,6 +4,7 @@ MAINTAINER tilldettmering@gmail.com
 # Install dependencies 
 RUN apt-get -qq update &&\
     apt-get install --no-install-recommends -y \
+                        optipng \
                         imagemagick &&\
     apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
